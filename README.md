@@ -5,9 +5,66 @@
 1. Clone
 2. Run maven verify serenity:aggregate
 
-## To add a new test case
+## To include Mamba in your existing project a new test case
 
-1. Edit src/test/resources/contract-verification.properties file.
+1. Include following dependency in pom.xml
+        <dependency>
+            <groupId>com.iv.mamba</groupId>
+            <artifactId>mamba-framework-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+2. Add below repository to pom.xml
+    <repositories>
+        <repository>
+            <id>mamba</id>
+            <url>https://github.com/infovisionaccelerators/mamba-dist/raw/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+3. Include following plugins to <build> tag in pom.xml
+        <plugin>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>2.22.1</version>
+            <configuration>
+                <enableAssertions>false</enableAssertions>
+                <includes>
+                </includes>
+                <parallel>classes</parallel>
+                <threadCount>${parallel.tests}</threadCount>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>integration-test</goal>
+                        <goal>verify</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+        <plugin>
+            <groupId>net.serenity-bdd.maven.plugins</groupId>
+            <artifactId>serenity-maven-plugin</artifactId>
+            <version>${serenity.maven.version}</version>
+            <configuration>
+                <tags>${tags}</tags>
+                <reports>email</reports>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>serenity-reports</id>
+                    <phase>post-integration-test</phase>
+                    <goals>
+                        <goal>aggregate</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+
+4. Edit src/test/resources/contract-verification.properties file.
     a. Update default-base-url
     b. Add REST specific details for the test case. 
         *.uri - Entry for the url. The default-base-url and uri combination forms the complete endpoint request url. You can provide the complete url in uri field as well.
@@ -17,7 +74,7 @@
         *.header - Entry for header elements. Multiple headers can be separated by comma (,)
         Note: * is the test case key.
     c. Update default-ignore-fields - this contains the dynamic fields which need not be checked, e.g.- current timestamp or corelation-id
-2. Add the unit test case java file in src/test/java folder. You can add multiple steps in a single java program and sequence them.
+5. Add the unit test case java file in src/test/java folder. You can add multiple steps in a single java program and sequence them.
     a. You must add following entries at class level
         @RunWith(MambaRunner.class)
         @FixMethodOrder(MethodSorters.NAME_ASCENDING)
