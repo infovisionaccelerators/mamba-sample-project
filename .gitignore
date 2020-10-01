@@ -1,0 +1,11 @@
+/target/
+/.idea/
+/contracts/
+.classpath
+.project
+/test-output/
+.settings
+*.iml
+/.metadata/
+/target-bk/
+/generated/
