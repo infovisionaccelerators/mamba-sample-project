@@ -1,11 +1,11 @@
 # mamba-sample-project
 
-**Steps to Run the sample Project
+##Steps to Run the sample Project
 
 1. Clone
 2. Run maven verify serenity:aggregate
 
-**To add a new test case
+##To add a new test case
 
 1. Edit src/test/resources/contract-verification.properties file.
     a. Update default-base-url
