@@ -5,7 +5,7 @@
 1. Clone
 2. Run maven verify serenity:aggregate
 
-## To include Mamba in your existing project a new test case
+**Steps to include Mamba in your existing project a new test case**
 
 1. Include following dependency in pom.xml
         
@@ -15,17 +15,17 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 2. Add below repository to pom.xml
-    
-    <repositories>
-        <repository>
-            <id>mamba</id>
-            <url>https://github.com/infovisionaccelerators/mamba-dist/raw/mvn-repo/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
+
+        <repositories>
+                <repository>
+                    <id>mamba</id>
+                    <url>https://github.com/infovisionaccelerators/mamba-dist/raw/mvn-repo/</url>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+        </repositories>
     
 3. Include following plugins to <build> tag in pom.xml
         
@@ -69,6 +69,7 @@
         </plugin>
 
 4. Edit src/test/resources/contract-verification.properties file.
+    
     a. Update default-base-url
     b. Add REST specific details for the test case. 
         *.uri - Entry for the url. The default-base-url and uri combination forms the complete endpoint request url. You can provide the complete url in uri field as well.
