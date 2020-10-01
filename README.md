@@ -1,6 +1,6 @@
 # mamba-sample-project
 
-**Steps to Run the sample Project**
+**Steps to Run the sample project**
 
 1. Clone
 2. Run maven verify serenity:aggregate
