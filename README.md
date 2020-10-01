@@ -8,12 +8,14 @@
 ## To include Mamba in your existing project a new test case
 
 1. Include following dependency in pom.xml
+        
         <dependency>
             <groupId>com.iv.mamba</groupId>
             <artifactId>mamba-framework-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 2. Add below repository to pom.xml
+    
     <repositories>
         <repository>
             <id>mamba</id>
@@ -24,7 +26,9 @@
             </snapshots>
         </repository>
     </repositories>
+    
 3. Include following plugins to <build> tag in pom.xml
+        
         <plugin>
             <artifactId>maven-failsafe-plugin</artifactId>
             <version>2.22.1</version>
