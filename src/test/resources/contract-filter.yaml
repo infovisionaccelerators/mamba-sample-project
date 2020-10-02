@@ -5,12 +5,12 @@ baseline:
     feature:
       include:
       # - ALL
-      
+
       exclude:
 
     testcase:
       include:
-      
+
       exclude:
 
     #To exclude All specify exclude: ALL. Exclude always takes precedence over include
@@ -20,7 +20,7 @@ baseline:
     # include:
     #   - msname.apiname.scenarioname
     #   - msname.apiname.scenarioname
-    
+
     include:
 
 validate:
@@ -42,13 +42,13 @@ validate:
     # include:
     #   - msname.apiname.scenarioname
     #   - msname.apiname.scenarioname
-    
+
     include:
 
 global-data:
-  #mtn1: "123"
-  #mtn2: "456"
-  #mtn3: "789"
+  emp1-name: "Alex"
+  emp1-sal: 100000
+  emp1-sal2: 200000
 
 default-request-header:
   Content-Type: application/json
