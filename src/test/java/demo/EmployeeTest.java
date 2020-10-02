@@ -2,6 +2,7 @@ package demo;
 
 import com.iv.mamba.contracts.framework.filters.ContractAnnotationProcessorRule;
 import com.iv.mamba.contracts.framework.filters.ContractInfo;
+import com.iv.mamba.contracts.framework.filters.ExtractInfo;
 import com.iv.mamba.contracts.framework.filters.FeatureInfo;
 import com.iv.mamba.contracts.framework.runner.MambaRunner;
 import net.thucydides.core.annotations.Title;
@@ -17,9 +18,24 @@ import org.junit.runners.MethodSorters;
 public class EmployeeTest {
     @Rule public ContractAnnotationProcessorRule myRule = new ContractAnnotationProcessorRule();
 
-    //@ExtractInfo(extractField = "")
+    @ExtractInfo(extractField = "employeeId:data.id")
+    @ContractInfo(contractName = "employee.create")
+    @Test
+    @Title("Create Employee")
+    public void test01() {}
+
     @ContractInfo(contractName = "employee.get")
     @Test
-    @Title("Get All Employees")
-    public void test01() {}
+    @Title("Get Employee by Id")
+    public void test02() {}
+
+    @ContractInfo(contractName = "employee.update")
+    @Test
+    @Title("Update Employee by Id")
+    public void test03() {}
+
+    @ContractInfo(contractName = "employee.get")
+    @Test
+    @Title("Get Employee by Id")
+    public void test04() {}
 }
