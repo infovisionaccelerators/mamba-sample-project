@@ -3,7 +3,7 @@
 **Steps to Run the sample project**
 
 1. Clone
-2. Run mvn verify serenity:aggregate
+2. Run mvn verify serenity:aggregate -Dmaven.test.failure.ignore=true
 
 **Steps to include Mamba in your existing project a new test case**
 
