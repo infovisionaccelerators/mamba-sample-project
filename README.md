@@ -3,7 +3,7 @@
 **Steps to Run the sample project**
 
 1. Clone
-2. Run maven verify serenity:aggregate
+2. Run mvn verify serenity:aggregate
 
 **Steps to include Mamba in your existing project a new test case**
 
