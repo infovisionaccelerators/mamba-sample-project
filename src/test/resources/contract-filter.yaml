@@ -1,0 +1,55 @@
+runGroup: baseline
+timeoutInSecs: 150
+baseline:
+  execute:
+    feature:
+      include:
+      # - ALL
+      
+      exclude:
+
+    testcase:
+      include:
+      
+      exclude:
+
+    #To exclude All specify exclude: ALL. Exclude always takes precedence over include
+    exclude:
+    #To include All specify include: ALL
+    #to include a list of apis -
+    # include:
+    #   - msname.apiname.scenarioname
+    #   - msname.apiname.scenarioname
+    
+    include:
+
+validate:
+  execute:
+    #Test cases can be included/excluded at feature level
+    feature:
+      include:
+      exclude:
+    testcase:
+      include:
+      exclude:
+    #To exclude All specify -
+    # exclude: ALL.
+    #
+    #Exclude always takes precedence over include
+    exclude:
+    #To include All specify include: ALL
+    #to include a list of apis -
+    # include:
+    #   - msname.apiname.scenarioname
+    #   - msname.apiname.scenarioname
+    
+    include:
+
+global-data:
+  #mtn1: "123"
+  #mtn2: "456"
+  #mtn3: "789"
+
+default-request-header:
+  Content-Type: application/json
+  
