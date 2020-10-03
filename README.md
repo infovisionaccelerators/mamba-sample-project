@@ -86,11 +86,12 @@
                 @RunWith(MambaRunner.class)
                 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
         b. Add feature name at class level 
-                @FeatureInfo(name="<a feature name>")
+                @Feature(name="<a feature name>")
         c. Add following class level variables
                 @Rule public ContractAnnotationProcessorRule myRule = new ContractAnnotationProcessorRule();
         d. Add a test case method as below
-                @ExtractInfo(extractField = "<attribute name>:<json path in the response>") // this extracts and stores the attribute in a global map to be used in subsequent calls
+                @Extract(extractField = "<attribute name>:<json path in the response>") // this extracts and stores the attribute in a global map to be used in subsequent calls
+                @Validations(rules = "status eq failed") //Optional
                 @ContractInfo(contractName = "<key identifier>") //here contract name is the key of the rest configuration provided in contract-verification.properties file
                 @Test
                 @Title("<A title of the test case>") // Title of the test case
