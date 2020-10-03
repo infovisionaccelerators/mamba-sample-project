@@ -3,7 +3,7 @@
 **Steps to Run the sample project**
 
 1. Clone
-2. Run mvn verify serenity:aggregate -Dmaven.test.failure.ignore=true
+2. Run mvn clean verify serenity:aggregate -Dmaven.test.failure.ignore=true
 
 **Steps to include Mamba in your existing project a new test case**
 
@@ -12,7 +12,7 @@
         <dependency>
             <groupId>com.iv.mamba</groupId>
             <artifactId>mamba-framework-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 2. Add below repository to pom.xml
 
