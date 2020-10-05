@@ -22,7 +22,7 @@ public class EmployeeTest {
     public void test01() {}
 
     @ContractInfo(contractName = "employee.get")
-    @Validations(rules = "status eq filed")
+    @JsonValidations(rules = {"status eq success", "statuses ex"})
     @Test
     @Title("Get Employee by Id")
     public void test02() {}
