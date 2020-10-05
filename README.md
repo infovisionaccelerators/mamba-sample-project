@@ -4,6 +4,7 @@
 
 1. Clone
 2. Run mvn clean verify serenity:aggregate -Dmaven.test.failure.ignore=true
+3. View the summary report at - target\site\serenity\serenity-summary.html
 
 **Steps to include Mamba in your existing project a new test case**
 
@@ -12,7 +13,7 @@
         <dependency>
             <groupId>com.iv.mamba</groupId>
             <artifactId>mamba-framework-core</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.1</version>
         </dependency>
 2. Add below repository to pom.xml
 
@@ -91,9 +92,19 @@
                 @Rule public ContractAnnotationProcessorRule myRule = new ContractAnnotationProcessorRule();
         d. Add a test case method as below
                 @Extract(extractField = "<attribute name>:<json path in the response>") // this extracts and stores the attribute in a global map to be used in subsequent calls
-                @Validations(rules = "status eq failed") //Optional
+                @JsonValidations(rules = {<jsonfield condition value>"status eq success", <jsonfield condition value>"statuses ex"}) //Optional, example: @JsonValidations(rules = {"status eq success", "statuses ex"}) 
                 @ContractInfo(contractName = "<key identifier>") //here contract name is the key of the rest configuration provided in contract-verification.properties file
                 @Test
                 @Title("<A title of the test case>") // Title of the test case
                 public void test01() {}
 
+
+**Note**: 
+
+    Supported validation operations: 
+        eq - equals (Does a object equals)
+        ex - exists
+        ge - greater than or equal to (only numbers allowed)
+        le - less than or equal to (only numbers allowed)
+        gt - greater than (only numbers allowed)
+        lt - less than (only numbers allowed)
